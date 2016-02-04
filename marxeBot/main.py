@@ -126,7 +126,7 @@ class WebhookHandler(webapp2.RequestHandler):
             pass
 
         # EDITAR DAQUI!
-        m = "Nao quero cafe, so chimarrao!"
+        m = "Nao quero cafe, so chimarao!"
         if 'cafe' in text or 'coffe' in text:
             reply(m)
 

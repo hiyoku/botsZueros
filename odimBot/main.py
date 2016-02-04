@@ -118,12 +118,13 @@ class WebhookHandler(webapp2.RequestHandler):
             pass
 
         # EDITAR DAQUI
+        foods = ['churrasco', 'churros', 'lanche', 'rodizio', 'pizza', 'bacon', 'salgado']
 
         if 'melhor aluno' in text:
             reply('Meu melhor aluno Marchezi!')
         elif 'cannabis' in text or 'maconha' in text:
             reply('Voces nao deveriam usar essas drogas ilicitas')
-        elif 'churrasco' in text or 'churros' in text:
+        elif any(s for s in foods if s in text):
             reply('Voce deveria reeducar sua alimentacao')
         elif 'computador' in text or 'winchester' in text:
             reply('Tive que formatar o Winchester')
