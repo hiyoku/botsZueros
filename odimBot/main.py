@@ -119,10 +119,15 @@ class WebhookHandler(webapp2.RequestHandler):
 
         # EDITAR DAQUI
         foods = ['churrasco', 'churros', 'lanche', 'rodizio', 'pizza', 'bacon', 'salgado']
+        drogas = ['cannabis', 'maconha', 'crack', 'cocaina', 'cogumelo']
+        bigWords = ['porra', 'caralho', 'penis', 'piroca', 'pigoka', 'pig0ka', 'meu ovo', 'fdp', 'vsf', 'ixcroto',
+                    'escroto', 'excroto', 'piruzinho']
+
+        text = text.lower()
 
         if 'melhor aluno' in text:
             reply('Meu melhor aluno Marchezi!')
-        elif 'cannabis' in text or 'maconha' in text:
+        elif any(s for s in drogas if s in text):
             reply('Voces nao deveriam usar essas drogas ilicitas')
         elif any(s for s in foods if s in text):
             reply('Voce deveria reeducar sua alimentacao')
@@ -130,7 +135,7 @@ class WebhookHandler(webapp2.RequestHandler):
             reply('Tive que formatar o Winchester')
         elif 'Odim' in text:
             reply('O Senhor se referiu a minha pessoa?!')
-        elif 'meu ovo' in text:
+        elif any(s for s in bigWords if s in text):
             reply('Cuidado com seu vocabulario, meu jovem!')
 
         if text == 'odimVersion': reply('Versao Herbert Richards 1.1')
